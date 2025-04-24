@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is me follow Namaste React course by Akshay Saini",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
@@ -19,5 +18,9 @@
   "homepage": "https://github.com/adityavarma1234/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
