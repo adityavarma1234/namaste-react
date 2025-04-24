@@ -10,12 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/adityavarma1234/namaste-react.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Aditya Varma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/adityavarma1234/namaste-react/issues"
   },
-  "homepage": "https://github.com/adityavarma1234/namaste-react#readme"
+  "homepage": "https://github.com/adityavarma1234/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  }
 }
