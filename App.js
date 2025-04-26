@@ -5,7 +5,10 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img src="https://www.logodesign.net/logo/smoking-burer-with-lettuce-3624ld.png" />
+        <img
+          className="logo"
+          src="https://www.logodesign.net/logo/smoking-burer-with-lettuce-3624ld.png"
+        />
       </div>
       <div className="nav-items">
         <ul>
@@ -19,10 +22,35 @@ const Header = () => {
   );
 };
 
+const styleCard = {
+  backgroundColor: "#f0f0f0",
+};
+
+const RestaurantCard = () => {
+  return (
+    <div className="restaurant-card" style={styleCard}>
+      <h3>Meghana Foods</h3>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+
+      <div className="restaurant-container">
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
-      <Header></Header>
+      <Header />
+      <Body />
     </div>
   );
 };
