@@ -22,3 +22,26 @@
   padding: 10px;
   margin: 10px;
 }
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-card {
+  margin: 5px;
+  padding: 10px;
+  width: 200px;
+}
+
+.restaurant-card:hover {
+  border: 1px solid;
+  cursor: pointer;
+}
+.search {
+  padding: 10px;
+}
+
+.restaurant-logo {
+  width: 190px;
+}
