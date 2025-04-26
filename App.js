@@ -1,31 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Title = () => "Aditya Title Component";
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img src="https://www.logodesign.net/logo/smoking-burer-with-lettuce-3624ld.png" />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-const ParagraphComponent = () => (
-  <div>
-    <p>This is a pargraph</p>
-  </div>
-);
-
-const number = 10000;
-
-const HeadingComponent = () => (
-  <div id="container">
-    <h1 id="heading">Aditya Namaste React Functional Component</h1>
-    <ParagraphComponent />
-    {ParagraphComponent()}
-    <h2>{number}</h2>
-    <p>{100 + 200}</p>
-    <p>{console.log("Hi this is aditya varma")}</p>
-    <img src="https://cdn.prod.website-files.com/65fd72d1af536c05fae68e0d/65fd802307e674a8cb966105_Decent%20logos%201.svg"></img>
-  </div>
-);
-
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header></Header>
+    </div>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const titleRoot = ReactDOM.createRoot(document.getElementById("root_title"));
-
-root.render(<HeadingComponent />);
-titleRoot.render(<Title />);
+root.render(<AppLayout />);
