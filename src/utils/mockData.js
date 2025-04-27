@@ -171,6 +171,100 @@ const restaurantList = [
   {
     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
     info: {
+      id: "155256",
+      name: "Pizza Hut Copy",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/4/9/e1a77e07-4e9b-4b5c-8c11-2debe231c746_155266.jpg",
+      locality: "Miyapur",
+      areaName: "Miyapur",
+      costForTwo: "₹350 for two",
+      cuisines: ["Pizzas"],
+      avgRating: 4.1,
+      parentId: "721",
+      avgRatingString: "4.1",
+      totalRatingsString: "8.0K+",
+      sla: {
+        deliveryTime: 54,
+        lastMileTravel: 4.2,
+        serviceability: "SERVICEABLE",
+        slaString: "50-55 mins",
+        lastMileTravelString: "4.2 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2025-04-26 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Pizza.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Pizza.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹100",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "4.5",
+          ratingCount: "906",
+        },
+        source: "GOOGLE",
+        sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-012ec244-22ca-4a0a-a374-9ac880920091",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/hyderabad/pizza-hut-miyapur-rest155266",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
       id: "755854",
       name: "Leon's - Burgers & Wings (Leon Grill)",
       cloudinaryImageId:

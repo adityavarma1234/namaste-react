@@ -5,10 +5,40 @@ import { useState } from "react";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState(restaurantList);
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="body">
-      <div className="search">Search</div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search.."
+          className="search-text"
+          id="search-id"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setSearchValue(e.target.value);
+          }}
+        ></input>
+        <button
+          className="search-btn"
+          onClick={() => {
+            console.log("Search button clicked");
+            if (searchValue.length > 3) {
+              const filteredList = listOfRestaurants.filter((restaurantList) =>
+                restaurantList.info.name.startsWith(searchValue)
+              );
+              setListOfRestaurants(filteredList);
+              console.log(filteredList);
+            } else {
+              setListOfRestaurants(restaurantList);
+              console.log("all list showing");
+            }
+          }}
+        >
+          Search
+        </button>
+      </div>
 
       <div className="filter">
         <button
@@ -18,7 +48,7 @@ const Body = () => {
               (restaurant) => restaurant.info.avgRating > 4.2
             );
             setListOfRestaurants(filteredList);
-            console.log(listOfRestaurants);
+            // console.log(listOfRestaurants);
           }}
         >
           Top Rated Restaurants
