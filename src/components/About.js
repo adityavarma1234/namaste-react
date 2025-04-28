@@ -1,4 +1,5 @@
 const About = () => {
+  console.log("Loaded about page");
   return (
     <div>
       <h1>About</h1>
