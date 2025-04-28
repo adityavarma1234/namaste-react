@@ -70,3 +70,7 @@
 .signup-btn {
   padding: 10px;
 }
+
+.search-container {
+  display: flex;
+}
