@@ -6,3 +6,4 @@ export const LOGO_URL =
 
 export const LOGIN = "Login";
 export const LOGOUT = "Logout";
+export const TEST = "test";
