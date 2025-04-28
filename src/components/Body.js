@@ -29,56 +29,56 @@ const Body = () => {
     <ShimmerRestaurantCard />
   ) : (
     <div className="body">
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search.."
-          className="search-text"
-          id="search-id"
-          value={searchValue}
-          onChange={(e) => {
-            console.log(e.target.value);
-            setSearchValue(e.target.value);
-          }}
-        ></input>
-        <button
-          className="search-btn"
-          onClick={() => {
-            console.log("Search button clicked");
-            if (searchValue.length > 3) {
-              const filteredList = listOfAllRestaurants.filter(
-                (restaurantList) =>
-                  restaurantList.info.name
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase())
+      <div className="search-container">
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search.."
+            className="search-text"
+            id="search-id"
+            value={searchValue}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setSearchValue(e.target.value);
+            }}
+          ></input>
+          <button
+            className="search-btn"
+            onClick={() => {
+              console.log("Search button clicked");
+              if (searchValue.length > 3) {
+                const filteredList = listOfAllRestaurants.filter(
+                  (restaurantList) =>
+                    restaurantList.info.name
+                      .toLowerCase()
+                      .includes(searchValue.toLowerCase())
+                );
+                setListOfRestaurants(filteredList);
+                console.log(filteredList);
+              } else {
+                setListOfRestaurants(listOfAllRestaurants);
+                console.log("all list showing");
+              }
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <div className="filter">
+          <button
+            className="filter-btn"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (restaurant) => restaurant.info.avgRating > 4.2
               );
               setListOfRestaurants(filteredList);
-              console.log(filteredList);
-            } else {
-              setListOfRestaurants(listOfAllRestaurants);
-              console.log("all list showing");
-            }
-          }}
-        >
-          Search
-        </button>
+              // console.log(listOfRestaurants);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (restaurant) => restaurant.info.avgRating > 4.2
-            );
-            setListOfRestaurants(filteredList);
-            // console.log(listOfRestaurants);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-      </div>
-
       <div className="restaurant-container">
         {listOfRestaurants.map((restaurant) => (
           <RestaurantCard
