@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 
 const Body = () => {
+  console.log("body rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
@@ -21,8 +22,6 @@ const Body = () => {
     );
   };
 
-  console.log("body rendered");
-
   return listOfRestaurants.length == 0 ? (
     <ShimmerRestaurantCard />
   ) : (
@@ -33,6 +32,7 @@ const Body = () => {
           placeholder="Search.."
           className="search-text"
           id="search-id"
+          value={searchValue}
           onChange={(e) => {
             console.log(e.target.value);
             setSearchValue(e.target.value);
@@ -44,12 +44,14 @@ const Body = () => {
             console.log("Search button clicked");
             if (searchValue.length > 3) {
               const filteredList = listOfRestaurants.filter((restaurantList) =>
-                restaurantList.info.name.startsWith(searchValue)
+                restaurantList.info.name
+                  .toLowerCase()
+                  .includes(searchValue.toLowerCase())
               );
               setListOfRestaurants(filteredList);
               console.log(filteredList);
             } else {
-              setListOfRestaurants(restaurantList);
+              setListOfRestaurants(listOfRestaurants);
               console.log("all list showing");
             }
           }}
