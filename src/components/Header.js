@@ -39,6 +39,9 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
         </ul>
       </div>
     </div>
