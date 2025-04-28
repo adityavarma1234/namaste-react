@@ -6,6 +6,7 @@ import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 const Body = () => {
   console.log("body rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [listOfAllRestaurants, setListOfAllRestaurants] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -17,9 +18,11 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.5169014&lng=78.3428304&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    let apiRestaurantList =
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setListOfAllRestaurants(apiRestaurantList);
+    setListOfRestaurants(apiRestaurantList);
   };
 
   return listOfRestaurants.length == 0 ? (
@@ -43,15 +46,16 @@ const Body = () => {
           onClick={() => {
             console.log("Search button clicked");
             if (searchValue.length > 3) {
-              const filteredList = listOfRestaurants.filter((restaurantList) =>
-                restaurantList.info.name
-                  .toLowerCase()
-                  .includes(searchValue.toLowerCase())
+              const filteredList = listOfAllRestaurants.filter(
+                (restaurantList) =>
+                  restaurantList.info.name
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
               );
               setListOfRestaurants(filteredList);
               console.log(filteredList);
             } else {
-              setListOfRestaurants(listOfRestaurants);
+              setListOfRestaurants(listOfAllRestaurants);
               console.log("all list showing");
             }
           }}
