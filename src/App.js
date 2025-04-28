@@ -6,6 +6,7 @@ import Body from "./components/Body.js";
 import Header from "./components/Header.js";
 import About from "./components/About.js";
 import Contact from "./components/Contact.js";
+import Error from "./components/Error.js";
 
 const styleCard = {
   backgroundColor: "#f0f0f0",
@@ -24,6 +25,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <Error />,
   },
   {
     path: "/about",
