@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 
 const Body = () => {
-  console.log("body rendered");
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [listOfAllRestaurants, setListOfAllRestaurants] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -38,14 +37,12 @@ const Body = () => {
             id="search-id"
             value={searchValue}
             onChange={(e) => {
-              console.log(e.target.value);
               setSearchValue(e.target.value);
             }}
           ></input>
           <button
             className="search-btn"
             onClick={() => {
-              console.log("Search button clicked");
               if (searchValue.length > 3) {
                 const filteredList = listOfAllRestaurants.filter(
                   (restaurantList) =>
@@ -54,10 +51,8 @@ const Body = () => {
                       .includes(searchValue.toLowerCase())
                 );
                 setListOfRestaurants(filteredList);
-                console.log(filteredList);
               } else {
                 setListOfRestaurants(listOfAllRestaurants);
-                console.log("all list showing");
               }
             }}
           >
@@ -72,7 +67,6 @@ const Body = () => {
                 (restaurant) => restaurant.info.avgRating > 4.2
               );
               setListOfRestaurants(filteredList);
-              // console.log(listOfRestaurants);
             }}
           >
             Top Rated Restaurants
