@@ -3,3 +3,6 @@ export const CDN_URL =
 
 export const LOGO_URL =
   "https://www.logodesign.net/logo/smoking-burer-with-lettuce-3624ld.png";
+
+export const LOGIN = "Login";
+export const LOGOUT = "Logout";
