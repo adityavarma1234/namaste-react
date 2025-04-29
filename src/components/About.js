@@ -11,6 +11,9 @@ class About extends React.Component {
 
   async componentDidMount() {
     console.log("about component did mount");
+    const data = await fetch("https://api.github.com/users/aditya_varma1234");
+    const json = await data.json();
+    console.log(json);
   }
 
   render() {
@@ -20,7 +23,7 @@ class About extends React.Component {
         <h1>About</h1>
         <h3>Welcome to my food delivery app</h3>
         <p>This is from Namaste React App</p>
-        {/* <User name={"Aditya Varma(function)"} /> */}
+        <User name={"Aditya Varma(function)"} />
 
         <UserClass name={"First"} location={"Hyderabad(class)"} />
       </div>
