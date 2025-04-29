@@ -3,6 +3,7 @@ import { LOGIN, LOGOUT } from "../utils/constants";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   console.log("header loaded");
@@ -16,6 +17,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status: {useOnlineStatus() ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
