@@ -6,7 +6,18 @@ const User = ({ name }) => {
   useEffect(() => {
     // Api calls
     console.log(name + "api called");
+    return () => {
+      console.log("use effect unmounted");
+    };
   }, []);
+
+  useEffect(() => {
+    // Api calls
+    console.log(name + "api called1");
+    return () => {
+      console.log("use effect unmounted1");
+    };
+  });
 
   console.log(name + "function rendered");
 
