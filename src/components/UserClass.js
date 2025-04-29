@@ -23,7 +23,9 @@ class UserClass extends React.Component {
       userInfo: json,
     });
 
-    setInterval(() => {}, 1000);
+    this.timer = setInterval(() => {
+      console.log("inside user profile did mount");
+    }, 1000);
     // Api calls;
   }
 
@@ -32,6 +34,7 @@ class UserClass extends React.Component {
   }
 
   componentWillUnmount() {
+    clearInterval(this.timer);
     console.log("Component has been unmounted");
   }
 
