@@ -10,3 +10,6 @@ export const TEST = "test";
 
 export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.5169014&lng=78.3428304&restaurantId=";
+
+export const RESTAURANT_LIST_API =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.5169014&lng=78.3428304&page_type=DESKTOP_WEB_LISTING";

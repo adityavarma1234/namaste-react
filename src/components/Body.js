@@ -1,43 +1,25 @@
 import RestaurantCard from "./RestaurantCard";
 
-import { useState, useEffect, use } from "react";
+import { useState } from "react";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [listOfAllRestaurants, setListOfAllRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState(null);
+
   const [searchValue, setSearchValue] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const restaurantsListFromAPI = useRestaurantList();
 
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.5169014&lng=78.3428304&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    let apiRestaurantList =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setListOfAllRestaurants(apiRestaurantList);
-    setListOfRestaurants(apiRestaurantList);
-  };
+  if (restaurantsListFromAPI == null) {
+    return <ShimmerRestaurantCard />;
+  }
 
-  const onlineStatus = useOnlineStatus();
-
-  if (onlineStatus == false)
-    return (
-      <h1>
-        Looks like you are offline!! Please check your internet connection
-      </h1>
-    );
-
-  return listOfRestaurants.length == 0 ? (
-    <ShimmerRestaurantCard />
-  ) : (
+  const renderRestaurantList =
+    listOfRestaurants == null ? restaurantsListFromAPI : listOfRestaurants;
+  return (
     <div className="body">
       <div className="search-container">
         <div className="search">
@@ -55,7 +37,7 @@ const Body = () => {
             className="search-btn"
             onClick={() => {
               if (searchValue.length > 3) {
-                const filteredList = listOfAllRestaurants.filter(
+                const filteredList = restaurantsListFromAPI.filter(
                   (restaurantList) =>
                     restaurantList.info.name
                       .toLowerCase()
@@ -63,7 +45,7 @@ const Body = () => {
                 );
                 setListOfRestaurants(filteredList);
               } else {
-                setListOfRestaurants(listOfAllRestaurants);
+                setListOfRestaurants(restaurantsListFromAPI);
               }
             }}
           >
@@ -74,7 +56,7 @@ const Body = () => {
           <button
             className="filter-btn"
             onClick={() => {
-              const filteredList = listOfRestaurants.filter(
+              const filteredList = restaurantsListFromAPI.filter(
                 (restaurant) => restaurant.info.avgRating > 4.2
               );
               setListOfRestaurants(filteredList);
@@ -85,7 +67,7 @@ const Body = () => {
         </div>
       </div>
       <div className="restaurant-container">
-        {listOfRestaurants.map((restaurant) => (
+        {renderRestaurantList.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
