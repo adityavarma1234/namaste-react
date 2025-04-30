@@ -11,26 +11,28 @@ const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState(LOGIN);
   useEffect(() => {}, [btnNameReact]);
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className="flex m-10 justify-between bg-pink-100 shadow-lg px-10">
+      <div className="logo-container ">
+        <img className="w-50" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status: {useOnlineStatus() ? "✅" : "🔴"}</li>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex">
+          <li className="px-4">
+            Online Status: {useOnlineStatus() ? "✅" : "🔴"}
+          </li>
+          <li className="px-4">
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-4">Cart</li>
           <button
             className="signup-btn"
             onClick={(e) => {
@@ -44,7 +46,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          <li>
+          <li className="px-4">
             <Link to="/login">Login</Link>
           </li>
         </ul>

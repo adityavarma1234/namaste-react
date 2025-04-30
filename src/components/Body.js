@@ -21,20 +21,19 @@ const Body = () => {
     listOfRestaurants == null ? restaurantsListFromAPI : listOfRestaurants;
   return (
     <div className="body">
-      <div className="search-container">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
           <input
             type="text"
             placeholder="Search.."
-            className="search-text"
-            id="search-id"
+            className="px-4 py-1 border border-solid border-black"
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
             }}
           ></input>
           <button
-            className="search-btn"
+            className="px-4 py-1 bg-green-400 m-4 cursor-pointer rounded-lg"
             onClick={() => {
               if (searchValue.length > 3) {
                 const filteredList = restaurantsListFromAPI.filter(
@@ -52,9 +51,9 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="filter">
+        <div className="m-4 p-4 flex items-center">
           <button
-            className="filter-btn"
+            className="px-4 py-1 bg-green-400 m-4 cursor-pointer items-center rounded-lg"
             onClick={() => {
               const filteredList = restaurantsListFromAPI.filter(
                 (restaurant) => restaurant.info.avgRating > 4.2
@@ -66,7 +65,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="restaurant-container">
+      <div className="flex flex-wrap">
         {renderRestaurantList.map((restaurant) => (
           <Link
             key={restaurant.info.id}
