@@ -1,9 +1,8 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withHighRatingLabel } from "./RestaurantCard";
 
 import { useState } from "react";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
@@ -13,10 +12,13 @@ const Body = () => {
 
   const restaurantsListFromAPI = useRestaurantList();
 
+  const RestaurantCardHighRating = withHighRatingLabel(RestaurantCard);
+
   if (restaurantsListFromAPI == null) {
     return <ShimmerRestaurantCard />;
   }
 
+  console.log(restaurantsListFromAPI);
   const renderRestaurantList =
     listOfRestaurants == null ? restaurantsListFromAPI : listOfRestaurants;
   return (
@@ -71,10 +73,17 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard
-              key={restaurant.info.id}
-              restaurantData={restaurant}
-            />
+            {restaurant.info.avgRating > 4.2 ? (
+              <RestaurantCardHighRating
+                restaurantData={restaurant}
+                key={restaurant.info.id}
+              />
+            ) : (
+              <RestaurantCard
+                key={restaurant.info.id}
+                restaurantData={restaurant}
+              />
+            )}
           </Link>
         ))}
       </div>

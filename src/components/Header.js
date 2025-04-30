@@ -11,7 +11,7 @@ const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState(LOGIN);
   useEffect(() => {}, [btnNameReact]);
   return (
-    <div className="flex m-10 justify-between bg-pink-100 shadow-lg px-10">
+    <div className="flex m-10 justify-between bg-green-100 shadow-lg px-10">
       <div className="logo-container ">
         <img className="w-50" src={LOGO_URL} />
       </div>
