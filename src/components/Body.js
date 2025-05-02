@@ -1,9 +1,10 @@
 import RestaurantCard, { withHighRatingLabel } from "./RestaurantCard";
 
-import { useState } from "react";
+import { use, useContext, useState } from "react";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../utils/useRestaurantList";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState(null);
@@ -11,6 +12,8 @@ const Body = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const restaurantsListFromAPI = useRestaurantList();
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const RestaurantCardHighRating = withHighRatingLabel(RestaurantCard);
 
@@ -65,6 +68,16 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div>
+          <label>User Name: </label>
+          <input
+            value={loggedInUser}
+            className="m-2 p-2 border-black border"
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">
