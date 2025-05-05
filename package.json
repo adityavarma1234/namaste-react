@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/adityavarma1234/namaste-react#readme",
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "parcel": "^2.14.4"
   },
   "dependencies": {
