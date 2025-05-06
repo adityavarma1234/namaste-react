@@ -1,5 +1,4 @@
 const Contact = () => {
-  console.log("contact us page loaded");
   return (
     <div>
       <h1 className="p-4 m-4 font-bold text-3xl">Contact Us</h1>

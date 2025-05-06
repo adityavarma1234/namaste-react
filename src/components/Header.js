@@ -8,18 +8,14 @@ import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  console.log("header loaded");
   let btnName = "Login";
   const [btnNameReact, setbtnNameReact] = useState(LOGIN);
   useEffect(() => {}, [btnNameReact]);
 
   const { loggedInUser } = useContext(UserContext);
-  console.log(loggedInUser);
 
   // subscribing to the store using a selector
   const cartItems = useSelector((store) => store.cart.items);
-
-  console.log(cartItems);
 
   return (
     <div className="flex m-10 justify-between bg-green-100 shadow-lg px-10">
