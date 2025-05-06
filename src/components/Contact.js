@@ -2,7 +2,22 @@ const Contact = () => {
   console.log("contact us page loaded");
   return (
     <div>
-      <h1>Contact Us</h1>Reach out to dev on nitbaditya@gmail.com
+      <h1 className="p-4 m-4 font-bold text-3xl">Contact Us</h1>
+      <form>
+        <input
+          type="text"
+          className="border border-black p-2 m-2"
+          placeholder="name"
+        />
+        <input
+          type="text"
+          className="border border-black p-2 m-2"
+          placeholder="message"
+        />
+        <button className="border border-black p-2 m-2 bg-green-400 rounded-lg">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
