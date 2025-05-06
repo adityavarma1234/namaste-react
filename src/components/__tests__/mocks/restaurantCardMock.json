@@ -1,0 +1,74 @@
+{
+  "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+  "info": {
+    "id": "152417",
+    "name": "Burger King",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/24/166c48f6-5875-4509-b218-f3af425f96a0_152417.jpg",
+    "locality": "GSM mall",
+    "areaName": "Icrisat Colony",
+    "costForTwo": "₹350 for two",
+    "cuisines": ["Burgers", "American"],
+    "avgRating": 4.3,
+    "parentId": "166",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "29K+",
+    "sla": {
+      "deliveryTime": 26,
+      "lastMileTravel": 3,
+      "serviceability": "SERVICEABLE",
+      "slaString": "25-30 mins",
+      "lastMileTravelString": "3.0 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2025-05-06 23:00:00",
+      "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {},
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "60% OFF",
+      "subHeader": "UPTO ₹120"
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+      "aggregatedRating": {
+        "rating": "--"
+      }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+    "context": "seo-data-6325712c-988b-40b6-a1fa-ad6fff4f0124"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/city/hyderabad/burger-king-gsm-mall-icrisat-colony-rest152417",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

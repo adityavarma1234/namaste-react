@@ -3,6 +3,7 @@ import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
+  console.log(props);
   const { restaurantData } = props;
   const { loggedInUser } = useContext(UserContext);
   return (
