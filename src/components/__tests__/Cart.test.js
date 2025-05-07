@@ -1,5 +1,6 @@
 import { act } from "react-dom/test-utils";
 import RestaurantMenu from "../RestaurantMenu";
+import Cart from "../Cart";
 import { fireEvent, render, screen } from "@testing-library/react";
 import MOCK_RESTAURANT_MENU from "./mocks/restaurantMenuMock.json";
 import appStore from "../../utils/appStore";
@@ -22,6 +23,7 @@ describe("test cart functionality", () => {
           <Provider store={appStore}>
             <Header />
             <RestaurantMenu />
+            <Cart />
           </Provider>
         </BrowserRouter>
       )
@@ -39,7 +41,22 @@ describe("test cart functionality", () => {
     const addBtns = screen.getAllByRole("button", { name: "Add +" });
     fireEvent.click(addBtns[0]);
 
-    const cartAfterAdd = screen.getByText("Cart - (1 items)");
-    expect(cartAfterAdd).toBeInTheDocument();
+    const cartAfterAdd1 = screen.getByText("Cart - (1 items)");
+    expect(cartAfterAdd1).toBeInTheDocument();
+
+    fireEvent.click(addBtns[1]);
+    const cartAfterAdd2 = screen.getByText("Cart - (2 items)");
+    expect(cartAfterAdd2).toBeInTheDocument();
+
+    expect(screen.getAllByTestId("foodItems").length).toBe(7);
+
+    const clearCart = screen.getByRole("button", { name: "Clear Cart" });
+    fireEvent.click(clearCart);
+
+    expect(screen.getAllByTestId("foodItems").length).toBe(5);
+
+    expect(
+      screen.getByText("Cart is empty, Add items to cart")
+    ).toBeInTheDocument();
   });
 });
