@@ -14,7 +14,7 @@ global.fetch = jest.fn(() => {
 });
 
 describe("Intergration test case for search functionality", () => {
-  it("Should render the body component with Search", async () => {
+  it("Should search restaurant list for burger input", async () => {
     await act(async () =>
       render(
         <BrowserRouter>
@@ -22,6 +22,9 @@ describe("Intergration test case for search functionality", () => {
         </BrowserRouter>
       )
     );
+
+    const cardsBeforeSearch = screen.getAllByTestId("restaurantCard");
+    expect(cardsBeforeSearch.length).toBe(8);
 
     const searchBtn = screen.getByRole("button", { name: "Search" });
 
@@ -31,8 +34,8 @@ describe("Intergration test case for search functionality", () => {
 
     fireEvent.click(searchBtn);
 
-    const cards = screen.getAllByTestId("restaurantCard");
+    const cardsAfterSearch = screen.getAllByTestId("restaurantCard");
 
-    expect(cards.length).toBe(2);
+    expect(cardsAfterSearch.length).toBe(2);
   });
 });
