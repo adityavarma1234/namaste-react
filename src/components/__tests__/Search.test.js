@@ -38,4 +38,25 @@ describe("Intergration test case for search functionality", () => {
 
     expect(cardsAfterSearch.length).toBe(2);
   });
+
+  it("Should search restaurant list for burger input", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <Body />
+        </BrowserRouter>
+      )
+    );
+
+    const cardsBeforeFilter = screen.getAllByTestId("restaurantCard");
+    expect(cardsBeforeFilter.length).toBe(8);
+
+    const topRatedbtn = screen.getByRole("button", {
+      name: "Top Rated Restaurants",
+    });
+    fireEvent.click(topRatedbtn);
+
+    const cardsAfterFilter = screen.getAllByTestId("restaurantCard");
+    expect(cardsAfterFilter.length).toBe(4);
+  });
 });

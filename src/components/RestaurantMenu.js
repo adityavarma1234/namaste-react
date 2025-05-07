@@ -15,12 +15,9 @@ const RestaurantMenu = () => {
     return <ShimmerRestaurantCard />;
   }
 
-  console.log(restaurantInfo);
-
   const itemCards =
     restaurantInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card?.itemCards;
-  console.log(restaurantInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR);
 
   const categories =
     restaurantInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -29,7 +26,6 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  console.log(categories);
   return (
     <div className="m-4 p-4 text-center">
       <h1 className="font-extrabold text-2xl">
