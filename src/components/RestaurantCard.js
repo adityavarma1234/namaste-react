@@ -3,7 +3,6 @@ import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
-  console.log(props);
   const { restaurantData } = props;
   const { loggedInUser } = useContext(UserContext);
   return (
@@ -25,7 +24,6 @@ const RestaurantCard = (props) => {
 
 export const withHighRatingLabel = (RestaurantCard) => {
   return (props) => {
-    console.log(props);
     return (
       <div>
         <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
