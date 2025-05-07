@@ -21,7 +21,6 @@ const Body = () => {
     return <ShimmerRestaurantCard />;
   }
 
-  console.log(restaurantsListFromAPI);
   const renderRestaurantList =
     listOfRestaurants == null ? restaurantsListFromAPI : listOfRestaurants;
   return (
@@ -30,6 +29,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             placeholder="Search.."
             className="px-4 py-1 border border-solid border-black"
             value={searchValue}

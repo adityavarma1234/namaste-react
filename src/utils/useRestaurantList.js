@@ -5,7 +5,6 @@ const useRestaurantList = () => {
   const [restaurantList, setRestaurantList] = useState([]);
 
   const fetchRestaurantList = async () => {
-    console.log("fetch restaurant list is called");
     const data = await fetch(RESTAURANT_LIST_API);
     const json = await data.json();
     let apiRestaurantList =
@@ -15,7 +14,6 @@ const useRestaurantList = () => {
   };
 
   useEffect(() => {
-    console.log("use effect is called");
     fetchRestaurantList();
   }, []);
   return restaurantList;
